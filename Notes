@@ -1,0 +1,22 @@
+1. Spring boot debug log would change quite often, almost every few months.
+2. @SpringBootApplication automatically does a @ComponentScan("") on the current package
+3. Getting error when using @ComponentScan() - Unable to find a bean of this type then it means we ae doing 2 mistakes - 1. ComponentScan might not be right. We might be putting the component in a package which is outside the default ComponentScan.
+4. When we add @SpringBootApplication it automatically does a ComponentScan on the current package so the line of code for @ComponentScan automatically happens.
+5. @ComponentScan("com.spring_framework") - It scans packages. We can also configure multiple packages.
+    For configuring multiple packages - Define an array
+    For ex - @ComponentScan({"com.package1", "com.package2"})
+ 6. Spring is called a DI framework or a Dependency Injection framework. Why? Because doing DI.
+ 7. Dependency injection - Identify beans, their dependencies and wire them together (provides IOC - Inversion of Control).
+ 8. What is IOC? - Earlier we wrote the code to create the objects so we had to write java code to create the objects.Now who's creating the objects, who's in control. We are no longer in control The Spring framework is in control. That's why it is called IOC. Basically, We are shifting control from us to the Spring framework. Spring framework manages all our dependencies.
+ 9. When we're launching an application context what we're launching up is an IOC container.
+ 10. In a typical application, We do not return value direct from MyWebController class, we would call the BusinessService() and this might intern the calling another one class DataService (This is the one returning data). In BusinessService class, make use of data we want to submit up
+ 11. Maven is the build tool that we are using and Maven is the one which is downloading the Spring JARs for us.
+ 12. What happened if I manually download Spring JAR. The thing is, Spring JAR needs a lot of other JARs. Spring is a dependency. My project needs Spring. Spring framework also needs a lot of other JARs to be able to do its work. These are called Transitive Dependencies.
+ 13. If we want to manually download Spring JAR. It's also download all the Transitive Dependency JARs as well. So we need to download the Spring JAR and maybe 10 or 20 or 30 other JARs that Spring needs. Qe don't want to do that manually so we go for a tool called Maven. Maven downloads Spring framework and it downloads all the other things.
+ 14. pom.xml where we defining all the maven configuration.
+ 15. Like a class has class name and a package any Maven dependency has group ID and artifact ID.
+ 16. Difference between Maven dependency vs Maven Dependency?
+     ->  Maven dependency is a JAR that your application needs. Spring dependencies are the first Spring beans. business service is a dependency of myWeb controller. This is Spring dependency. Spring dependencies are at a lower level while Maven dependencies are at a higher level.
+
+  17. Constructor dependency are used mostly. Why? -  When the object is being created, all the dependencies are set as constructor parameters. Therefore ], just with one method call or constructor initialization your entire object is ready for use. No need to worry about whether something is autowires or not.
+  18. If I do not want to make use of unit test can use of Mock Objects.
